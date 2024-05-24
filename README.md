@@ -7,7 +7,7 @@
 ### **1\. 이프로젝트에서 어떻게 구현 되었나?**
 
 이 프로젝트에서의 어댑터 패턴은 UserDaoImpl 클래스와 UserMapper 인터페이스 사이에 적용되었다.  
-UserDaoImpl 클래스는 UserDao 인터페이스를 구현하며, getUser 메소드를 통해 사용자 정보를 가져온다. 
+UserDaoImpl 클래스는 UserDao 인터페이스를 구현하며, getUser 메소드를 통해 사용자 정보를 가져온다.
 
 ```
 public class UserDaoImpl implements UserDao {
@@ -81,12 +81,12 @@ public class UserDaoAdapter implements UserDao {
 
 ### **2\. 핵심 로직 설명**
 
-UserDaoAdapter 클래스는 UserDao 인터페이스를 구현하며, UserDaoImpl과 UserMapper를 사용하여 사용자 정보를 가져오는 역할을 한다. 이 클래스는 어플리케이션이 온라인 상태인지 오프라인 상태인지를 판단하고, 그에 따라 원격 데이터를 사용하거나 로컬 데이터를 사용할지 결정한다.    
-\- 클래스의 주요 구성 요소는 다음과 같다     
-**UserDaoImpl userDaoImpl:** UserDaoImpl 인스턴스를 저장하는 필드이다. 이 필드는 생성자를 통해 주입된다.    
-**UserMapper userMapper:** UserMapper 인스턴스를 저장하는 필드이다. 이 필드는 생성자를 통해 주입된다.    
-**UserDaoAdapter(UserDaoImpl userDaoImpl, UserMapper userMapper):** UserDaoAdapter의 생성자이다. UserDaoImpl과 UserMapper 인스턴스를 받아서 내부 필드에 저장한다.    
-**List<User> getUser(String id):** 주어진 ID를 가진 사용자의 정보를 가져오는 메소드이다. 어플리케이션이 온라인 상태라면 UserMapper를 사용하여 원격 데이터를 가져오고, 오프라인 상태라면 UserDaoImpl을 사용하여 로컬 데이터를 가져온다.
-**boolean applicationIsOnline():** 어플리케이션이 온라인 상태인지 판단하는 메소드이다. 소켓을 사용하여 특정 주소([http://www.google.com)에](http://www.google.com)에) 연결을 시도하고, 연결이 성공하면 어플리케이션이 온라인 상태라고 판단한다. 연결이 실패하면 어플리케이션이 오프라인 상태라고 판단한다.
+UserDaoAdapter 클래스는 UserDao 인터페이스를 구현하며, UserDaoImpl과 UserMapper를 사용하여 사용자 정보를 가져오는 역할을 한다. 이 클래스는 어플리케이션이 온라인 상태인지 오프라인 상태인지를 판단하고, 그에 따라 원격 데이터를 사용하거나 로컬 데이터를 사용할지 결정한다.  
+\- 클래스의 주요 구성 요소는 다음과 같다.
+**UserDaoImpl userDaoImpl:** UserDaoImpl 인스턴스를 저장하는 필드이다. 이 필드는 생성자를 통해 주입된다.  
+**UserMapper userMapper:** UserMapper 인스턴스를 저장하는 필드이다. 이 필드는 생성자를 통해 주입된다.  
+**UserDaoAdapter(UserDaoImpl userDaoImpl,UserMapperuserMapper):** UserDaoAdapter의 생성자이다. UserDaoImpl과 UserMapper 인스턴스를 받아서 내부 필드에 저장한다.  
+**List<User> getUser(String id ):** 주어진 ID를 가진 사용자의 정보를 가져오는 메소드이다. 어플리케이션이 온라인 상태라면 UserMapper를 사용하여 원격 데이터를 가져오고, 오프라인 상태라면 UserDaoImpl을 사용하여 로컬 데이터를 가져온다.
+**boolean applicationIsOnline():** 어플리케이션이 온라인 상태인지 판단하는 메소드이다. 소켓을 사용하여 특정 주소([http://www.google.com)에](http://www.google.com)에) 연결을 시도하고, 연결이 성공하면 어플리케이션이 온라인 상태라고 판단한다. 연결이 실패하면 어플리케이션이 오프라인 상태라고 판단한다.
 
 끝

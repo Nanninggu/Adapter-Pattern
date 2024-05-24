@@ -32,6 +32,7 @@ public class UserDaoAdapter implements UserDao {
         this.userMapper = userMapper;
     }
 
+    // core logic
     public List<User> getUser(String id) {
         if (applicationIsOnline()) {
             System.out.println("Application is online. Using remote data.");
