@@ -89,4 +89,4 @@ UserDaoAdapter 클래스는 UserDao 인터페이스를 구현하며, UserDaoImpl
 **List<User> getUser(String id):** 주어진 ID를 가진 사용자의 정보를 가져오는 메소드이다. 어플리케이션이 온라인 상태라면 UserMapper를 사용하여 원격 데이터를 가져오고, 오프라인 상태라면 UserDaoImpl을 사용하여 로컬 데이터를 가져온다.
 **boolean applicationIsOnline():** 어플리케이션이 온라인 상태인지 판단하는 메소드이다. 소켓을 사용하여 특정 주소([http://www.google.com)에](http://www.google.com)에) 연결을 시도하고, 연결이 성공하면 어플리케이션이 온라인 상태라고 판단한다. 연결이 실패하면 어플리케이션이 오프라인 상태라고 판단한다.
 
-- 끝 -
+-- 끝 --
